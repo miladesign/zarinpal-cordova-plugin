@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android" id="zarinpal-cordova-plugin" version="1.0.0">
+	<name>ZarinPal InApp Purchase</name>
+	<author>Milad Mohammadi Rezagah</author>
+	<description>ZarinPal is the first pioneer payer in Iran.</description>
+	<keywords>iap,inapp,inapp purchase,purchase,zarinpal,buy,sell,android</keywords>
+	<license>MIT</license>
+	<js-module src="www/ZarinPal.js" name="ZarinPal">
+		<clobbers target="ZarinPal" />
+	</js-module>
+	<engines>
+		<engine name="cordova" version="&gt;=3.0.0" />
+	</engines>
+	<platform name="android">
+		<config-file target="res/xml/config.xml" parent="/*">
+			<feature name="ZarinPalPlugin">
+				<param name="android-package" value="miladesign.cordova.ZarinPalPlugin" />
+			</feature>
+		</config-file>
+		<config-file target="AndroidManifest.xml" parent="/manifest">
+			<uses-permission android:name="android.permission.INTERNET" />
+		</config-file>
+		<config-file target="AndroidManifest.xml" parent="/manifest/application/activity">
+			<intent-filter>
+				<action android:name="android.intent.action.VIEW" />
+				<category android:name="android.intent.category.DEFAULT" />
+				<category android:name="android.intent.category.BROWSABLE" />
+				<data android:scheme="cordovazp" />
+			</intent-filter>
+		</config-file>
+		<source-file src="src/android/com/zarinpal/ewallets/purchase/HttpQueue.java" target-dir="src/com/zarinpal/ewallets/purchase/" />
+		<source-file src="src/android/com/zarinpal/ewallets/purchase/HttpRequest.java" target-dir="src/com/zarinpal/ewallets/purchase/" />
+		<source-file src="src/android/com/zarinpal/ewallets/purchase/HttpRequestListener.java" target-dir="src/com/zarinpal/ewallets/purchase/" />
+		<source-file src="src/android/com/zarinpal/ewallets/purchase/OnCallbackRequestPaymentListener.java" target-dir="src/com/zarinpal/ewallets/purchase/" />
+		<source-file src="src/android/com/zarinpal/ewallets/purchase/OnCallbackVerificationPaymentListener.java" target-dir="src/com/zarinpal/ewallets/purchase/" />
+		<source-file src="src/android/com/zarinpal/ewallets/purchase/Payment.java" target-dir="src/com/zarinpal/ewallets/purchase/" />
+		<source-file src="src/android/com/zarinpal/ewallets/purchase/PaymentRequest.java" target-dir="src/com/zarinpal/ewallets/purchase/" />
+		<source-file src="src/android/com/zarinpal/ewallets/purchase/SandboxPaymentRequest.java" target-dir="src/com/zarinpal/ewallets/purchase/" />
+		<source-file src="src/android/com/zarinpal/ewallets/purchase/VerificationPayment.java" target-dir="src/com/zarinpal/ewallets/purchase/" />
+		<source-file src="src/android/com/zarinpal/ewallets/purchase/ZarinPal.java" target-dir="src/com/zarinpal/ewallets/purchase/" />
+		<source-file src="src/android/miladesign/cordova/ZarinPalPlugin.java" target-dir="src/miladesign/cordova/" />
+		<source-file src="libs/Volley.jar" target-dir="libs" />
+	</platform>
+</plugin>
