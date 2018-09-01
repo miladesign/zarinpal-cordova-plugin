@@ -12,6 +12,9 @@
 #### Installation and Setup
 
 
+#### Sample
+You can see cordova sample from [index.html](https://raw.githubusercontent.com/VinoosIr/zarinpal-cordova-plugin/master/sample/index.html).
+
 #### Construct 2 Plugin
 You can download Construct 2 plugin from [Vinoos.ir](http://vinoos.ir/help/plugins/zarinpal.php).
 
